@@ -8,7 +8,7 @@ def dummy_loss(y_true, y_pred ):
 
 def gram_matrix(x):
     assert K.ndim(x) == 3
-    if K.image_dim_ordering() == 'th':
+    if K.common.image_dim_ordering() == 'th':
         features = K.batch_flatten(x)
     else:
         features = K.batch_flatten(K.permute_dimensions(x, (2, 0, 1)))
@@ -72,7 +72,7 @@ class TVRegularizer(Regularizer):
         shape = K.shape(x_out)
         img_width, img_height,channel = (shape[1],shape[2], shape[3])
         size = img_width * img_height * channel 
-        if K.image_dim_ordering() == 'th':
+        if K.common.image_dim_ordering() == 'th':
             a = K.square(x_out[:, :, :img_width - 1, :img_height - 1] - x_out[:, :, 1:, :img_height - 1])
             b = K.square(x_out[:, :, :img_width - 1, :img_height - 1] - x_out[:, :, :img_width - 1, 1:])
         else:

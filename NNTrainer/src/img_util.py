@@ -50,7 +50,7 @@ def preprocess_image(image_path, img_width=256, img_height=256, load_dims=False,
             img_height = (img_HEIGHT // size_multiple) * size_multiple # Make sure width is a multiple of 4
         img = imresize(img, (img_width, img_height),interp='nearest')
 
-    if K.image_dim_ordering() == "th":
+    if K.common.image_dim_ordering() == "th":
         img = img.transpose((2, 0, 1)).astype(np.float32)
     else:
 
@@ -86,7 +86,7 @@ def preprocess_image_for_generating(image_path, size_multiple=4):
 
     img = imresize(img, (img_width, img_height),interp='nearest')
 
-    if K.image_dim_ordering() == "Th":
+    if K.common.image_dim_ordering() == "Th":
         img = img.transpose((2, 0, 1)).astype(np.float32)
     else:
 
@@ -144,7 +144,7 @@ def crop_image(img, aspect_ratio):
 
 
 def deprocess_image(x,img_width=256, img_height=256):
-    if K.image_dim_ordering() == 'th':
+    if K.common.image_dim_ordering() == 'th':
         x = x.reshape((3, img_nrows, img_ncols))
         x = x.transpose((1, 2, 0))
     else:

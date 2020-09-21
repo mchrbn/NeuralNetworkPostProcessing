@@ -1,6 +1,19 @@
 Neural Network Post Processing
 ========
 
+## 0. installation
+
+#### fnst for Windows 10
+
+Anaconda + new environment with Python 3.6
+
+- Install [Anaconda](https://www.anaconda.com/products/individual) and create a new environment with Python 3.6
+- install [CUDA toolkit 10.0](https://developer.nvidia.com/cuda-downloads)
+- download [cuDNN 7.6.5 for CUDA 10.0](https://developer.nvidia.com/rdp/cudnn-archive) and add `C:\cudnn-10.0-windows10-x64-v7.6.5.32\cuda\bin` to Environment Path Variable
+- run `conda install graphviz`
+- run `pip install tensorflow==1.15 keras==2.3.1 scipy==1.1.0 imageio sklearn matplotlib pydot`
+
+add [vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5) in `model/`
 
 ## 1. data preparation
 

@@ -3,7 +3,7 @@ from keras.models import Model,Sequential
 from keras.optimizers import Adam, SGD,RMSprop
 from keras.preprocessing.image import ImageDataGenerator
 from keras import backend as K
-from scipy.misc import imsave
+import imageio
 import time
 import numpy as np
 import argparse
@@ -28,7 +28,7 @@ def display_img(i,x,style,is_val=False):
         fname = 'datasets/output/%s_%d_val.png' % (style,i)
     else:
         fname = 'datasets/output/%s_%d.png' % (style,i)
-    imsave(fname, img)
+    imageio.imwrite(fname, img)
     print('Image saved as', fname)
 
 def get_style_img_path(style):
